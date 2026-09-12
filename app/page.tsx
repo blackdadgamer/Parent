@@ -106,7 +106,7 @@ const faqs = [
   {
     question: "Is my data private?",
     answer:
-      "Privacy is a core part of the platform. School and student information should be handled responsibly, with privacy and security considered throughout the product.",
+      "Privacy is a core part of the platform. School and student information is handled responsibly, with privacy and security considered throughout the product.",
   },
   {
     question: "Can my whole school use one account?",
@@ -116,12 +116,12 @@ const faqs = [
   {
     question: "What AI models power Everest AI?",
     answer:
-      "Everest AI is designed to use modern AI infrastructure and open-source models, including Gemma-family models, while selecting the right technology for each product.",
+      "Everest AI uses modern AI infrastructure and open-source models, including Gemma-family models, while selecting the right technology for each product.",
   },
   {
     question: "Can I export question papers?",
     answer:
-      "Yes. QGen is designed to generate polished question papers and answer keys that can be used for classroom and assessment workflows.",
+      "Yes. QGen generates polished question papers and answer keys that can be used for classroom and assessment workflows.",
   },
 ];
 
@@ -146,45 +146,6 @@ const testimonials = [
     name: "Anita Thapa",
     school: "Everest International School",
     role: "School Administrator",
-  },
-];
-
-const pricing = [
-  {
-    name: "Free",
-    price: "$0",
-    period: "",
-    description: "For individual teachers trying things out.",
-    features: ["50 messages/day", "3 papers/month", "3 PPTs/month"],
-    cta: "Start free",
-    highlighted: false,
-  },
-  {
-    name: "Pro",
-    price: "$10",
-    period: "/month",
-    description: "For power teachers.",
-    features: [
-      "Unlimited chat",
-      "Unlimited question papers",
-      "Unlimited presentations",
-    ],
-    cta: "Start Pro",
-    highlighted: false,
-  },
-  {
-    name: "School",
-    price: "$1",
-    period: "/student/month",
-    description: "For entire schools.",
-    features: [
-      "All Pro features",
-      "Unlimited students & teachers",
-      "Custom onboarding",
-      "Priority support",
-    ],
-    cta: "Book a demo",
-    highlighted: true,
   },
 ];
 
@@ -229,7 +190,7 @@ export default function Home() {
       {/* Navbar */}
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/[0.06] bg-[#020617]/75 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="#" className="flex items-center gap-2.5">
+          <a href="/" className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] shadow-lg shadow-violet-500/10">
               <span className="text-lg">🏔️</span>
             </div>
@@ -239,28 +200,47 @@ export default function Home() {
           </a>
 
           <nav className="hidden items-center gap-8 lg:flex">
-            {["Products", "Pricing", "For Schools", "Docs", "About"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-sm font-medium text-white/55 transition hover:text-white"
-                >
-                  {item}
-                </a>
-              )
-            )}
+            <a
+              href="#products"
+              className="text-sm font-medium text-white/55 transition hover:text-white"
+            >
+              Products
+            </a>
+            <a
+              href="#why"
+              className="text-sm font-medium text-white/55 transition hover:text-white"
+            >
+              Why Everest
+            </a>
+            <a
+              href="https://schools.everestai.cloud"
+              className="text-sm font-medium text-white/55 transition hover:text-white"
+            >
+              For Schools
+            </a>
+            <a
+              href="https://chat.everestai.cloud/pricing"
+              className="text-sm font-medium text-white/55 transition hover:text-white"
+            >
+              Pricing
+            </a>
+            <a
+              href="#faq"
+              className="text-sm font-medium text-white/55 transition hover:text-white"
+            >
+              FAQ
+            </a>
           </nav>
 
           <div className="hidden items-center gap-5 sm:flex">
             <a
-              href="#"
+              href="https://chat.everestai.cloud"
               className="text-sm font-medium text-white/65 transition hover:text-white"
             >
               Log in
             </a>
             <a
-              href="#pricing"
+              href="https://chat.everestai.cloud"
               className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-violet-600/20 transition hover:-translate-y-0.5 hover:shadow-violet-500/30"
             >
               <span className="relative z-10">Get Started</span>
@@ -280,20 +260,43 @@ export default function Home() {
         {mobileMenu && (
           <div className="border-t border-white/[0.06] bg-[#020617]/95 px-5 py-5 sm:hidden">
             <nav className="flex flex-col gap-4">
-              {["Products", "Pricing", "For Schools", "Docs", "About"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase().replace(" ", "-")}`}
-                    onClick={() => setMobileMenu(false)}
-                    className="py-1 text-sm font-medium text-white/65"
-                  >
-                    {item}
-                  </a>
-                )
-              )}
               <a
-                href="#pricing"
+                href="#products"
+                onClick={() => setMobileMenu(false)}
+                className="py-1 text-sm font-medium text-white/65"
+              >
+                Products
+              </a>
+              <a
+                href="#why"
+                onClick={() => setMobileMenu(false)}
+                className="py-1 text-sm font-medium text-white/65"
+              >
+                Why Everest
+              </a>
+              <a
+                href="https://schools.everestai.cloud"
+                onClick={() => setMobileMenu(false)}
+                className="py-1 text-sm font-medium text-white/65"
+              >
+                For Schools
+              </a>
+              <a
+                href="https://chat.everestai.cloud/pricing"
+                onClick={() => setMobileMenu(false)}
+                className="py-1 text-sm font-medium text-white/65"
+              >
+                Pricing
+              </a>
+              <a
+                href="#faq"
+                onClick={() => setMobileMenu(false)}
+                className="py-1 text-sm font-medium text-white/65"
+              >
+                FAQ
+              </a>
+              <a
+                href="https://chat.everestai.cloud"
                 className="mt-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-3 text-center text-sm font-semibold"
               >
                 Get Started
@@ -304,7 +307,26 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="relative px-5 pb-24 pt-36 sm:px-8 sm:pt-44 lg:pb-32">
+      <section className="relative isolate overflow-hidden px-5 pb-24 pt-36 sm:px-8 sm:pt-44 lg:pb-32">
+        
+<div className="absolute inset-0 -z-10">
+  {/* Image at natural aspect ratio, centered */}
+  <div className="absolute inset-x-0 top-10 flex justify-center">
+    <img
+      src="/bg.png"
+      alt=""
+      aria-hidden="true"
+      className="w-full max-w-[1983px] opacity-40"
+      style={{ height: "auto" }}
+    />
+  </div>
+
+  {/* Fade to dark so content is readable */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/40 via-[#020617]/40 to-[#020617]" />
+</div>
+{/* Image at natural aspect ratio, centered */}
+ 
+
         <div className="mx-auto max-w-6xl text-center">
           <FadeUp>
             <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.035] px-4 py-2 text-xs font-medium text-white/65 shadow-xl shadow-violet-950/20 backdrop-blur">
@@ -326,7 +348,7 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={0.16}>
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/50 sm:text-lg sm:leading-8">
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8">
               Chat, question papers, presentations, and more — all under one
               login. Priced so every school can afford it.
             </p>
@@ -335,7 +357,7 @@ export default function Home() {
           <FadeUp delay={0.24}>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="#pricing"
+                href="https://chat.everestai.cloud"
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-7 py-3.5 text-sm font-bold shadow-xl shadow-violet-600/20 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-violet-500/30 sm:w-auto"
               >
                 Start free
@@ -346,16 +368,16 @@ export default function Home() {
               </a>
 
               <a
-                href="#schools"
+                href="https://schools.everestai.cloud"
                 className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-7 py-3.5 text-sm font-semibold text-white/80 transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] sm:w-auto"
               >
-                Book a school demo
+                For Schools
               </a>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.3}>
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/35">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/45">
               <span>10 free messages</span>
               <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" />
               <span>NEB/CDC ready</span>
@@ -407,7 +429,7 @@ export default function Home() {
 
                     <div className="grid gap-3 sm:grid-cols-2">
                       <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 text-left">
-                        <div className="rounded-lg bg-blue-500/10 p-2 text-blue-400 w-fit">
+                        <div className="w-fit rounded-lg bg-blue-500/10 p-2 text-blue-400">
                           <FileText size={18} />
                         </div>
                         <p className="mt-5 text-sm font-semibold">QGen</p>
@@ -420,7 +442,7 @@ export default function Home() {
                       </div>
 
                       <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 text-left">
-                        <div className="rounded-lg bg-fuchsia-500/10 p-2 text-fuchsia-400 w-fit">
+                        <div className="w-fit rounded-lg bg-fuchsia-500/10 p-2 text-fuchsia-400">
                           <Presentation size={18} />
                         </div>
                         <p className="mt-5 text-sm font-semibold">PPTgen</p>
@@ -443,7 +465,10 @@ export default function Home() {
       </section>
 
       {/* Products */}
-      <section id="products" className="border-t border-white/[0.05] px-5 py-24 sm:px-8 lg:py-32">
+      <section
+        id="products"
+        className="border-t border-white/[0.05] px-5 py-24 sm:px-8 lg:py-32"
+      >
         <div className="mx-auto max-w-7xl">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
@@ -478,7 +503,7 @@ export default function Home() {
 
                     <div className="relative">
                       <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${product.gradient} bg-opacity-10 shadow-lg`}
+                        className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${product.gradient} shadow-lg`}
                       >
                         <Icon size={22} />
                       </div>
@@ -516,7 +541,10 @@ export default function Home() {
       </section>
 
       {/* Why */}
-      <section className="px-5 py-24 sm:px-8 lg:py-32">
+      <section
+        id="why"
+        className="px-5 py-24 sm:px-8 lg:py-32"
+      >
         <div className="mx-auto max-w-7xl">
           <FadeUp>
             <div className="mb-12 text-center">
@@ -556,104 +584,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section
-        id="pricing"
-        className="relative border-t border-white/[0.05] px-5 py-24 sm:px-8 lg:py-32"
-      >
-        <div className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/[0.05] blur-[140px]" />
-
-        <div className="mx-auto max-w-7xl">
-          <FadeUp>
-            <div className="mb-12 text-center">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-violet-400">
-                Pricing
-              </p>
-              <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-                Simple pricing.
-                <br />
-                <span className="text-white/35">Every school.</span>
-              </h2>
-              <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-white/40">
-                Start free. Upgrade when you need more. No complicated
-                enterprise contracts standing between teachers and better
-                tools.
-              </p>
-            </div>
-          </FadeUp>
-
-          <div className="grid gap-4 lg:grid-cols-3">
-            {pricing.map((plan, index) => (
-              <FadeUp key={plan.name} delay={index * 0.08}>
-                <div
-                  className={`relative h-full rounded-2xl border p-7 ${
-                    plan.highlighted
-                      ? "border-violet-400/30 bg-gradient-to-b from-violet-500/[0.09] to-blue-500/[0.025] shadow-2xl shadow-violet-950/20"
-                      : "border-white/[0.07] bg-white/[0.02]"
-                  }`}
-                >
-                  {plan.highlighted && (
-                    <div className="absolute right-6 top-6 rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-3 py-1 text-[9px] font-bold uppercase tracking-wider">
-                      Most popular
-                    </div>
-                  )}
-
-                  <p className="text-sm font-bold text-white/60">
-                    {plan.name}
-                  </p>
-
-                  <div className="mt-5 flex items-end gap-1">
-                    <span className="text-5xl font-black tracking-[-0.05em]">
-                      {plan.price}
-                    </span>
-                    <span className="mb-1 text-xs text-white/35">
-                      {plan.period}
-                    </span>
-                  </div>
-
-                  <p className="mt-3 min-h-[48px] text-sm leading-6 text-white/38">
-                    {plan.description}
-                  </p>
-
-                  <div className="my-7 h-px bg-white/[0.06]" />
-
-                  <ul className="space-y-3">
-                    {plan.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-3 text-sm text-white/60"
-                      >
-                        <Check
-                          size={16}
-                          className="mt-0.5 shrink-0 text-violet-400"
-                        />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="#schools"
-                    className={`mt-8 flex w-full items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition ${
-                      plan.highlighted
-                        ? "bg-gradient-to-r from-violet-600 to-blue-600 shadow-lg shadow-violet-600/20 hover:-translate-y-0.5"
-                        : "border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.07]"
-                    }`}
-                  >
-                    {plan.cta}
-                  </a>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Schools */}
-      <section
-        id="schools"
-        className="px-5 py-24 sm:px-8 lg:py-32"
-      >
+      {/* Schools CTA */}
+      <section id="schools" className="px-5 py-24 sm:px-8 lg:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-violet-600/[0.11] via-white/[0.025] to-blue-600/[0.08] p-7 sm:p-10 lg:p-14">
             <div className="absolute right-[-100px] top-[-100px] h-80 w-80 rounded-full bg-violet-500/10 blur-[100px]" />
@@ -697,6 +629,14 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+
+                  <a
+                    href="https://schools.everestai.cloud"
+                    className="mt-9 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-7 py-3.5 text-sm font-bold shadow-xl shadow-violet-600/20 transition hover:-translate-y-1"
+                  >
+                    Visit schools portal
+                    <ArrowRight size={15} />
+                  </a>
                 </div>
               </FadeUp>
 
@@ -704,7 +644,7 @@ export default function Home() {
                 <div className="rounded-2xl border border-white/[0.08] bg-[#020617]/70 p-6 backdrop-blur-xl">
                   <p className="text-sm font-bold">Bring Everest AI to your school.</p>
                   <p className="mt-2 text-xs leading-5 text-white/35">
-                    Tell us a little about your school and we&apos;ll walk you
+                    Tell us a little about your school and we'll walk you
                     through the platform in a 15-minute demo.
                   </p>
 
@@ -726,10 +666,13 @@ export default function Home() {
                     />
                   </div>
 
-                  <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-3.5 text-sm font-bold shadow-lg shadow-violet-600/20 transition hover:-translate-y-0.5">
+                  <a
+                    href="https://schools.everestai.cloud"
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-3.5 text-sm font-bold shadow-lg shadow-violet-600/20 transition hover:-translate-y-0.5"
+                  >
                     Book a 15-minute demo
                     <ArrowRight size={15} />
-                  </button>
+                  </a>
                 </div>
               </FadeUp>
             </div>
@@ -764,7 +707,7 @@ export default function Home() {
                   </div>
 
                   <p className="mt-6 text-[15px] leading-7 text-white/65">
-                    “{testimonial.quote}”
+                    "{testimonial.quote}"
                   </p>
 
                   <div className="mt-8 border-t border-white/[0.06] pt-5">
@@ -781,7 +724,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="docs" className="px-5 py-24 sm:px-8 lg:py-32">
+      <section id="faq" className="px-5 py-24 sm:px-8 lg:py-32">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <div className="mb-12 text-center">
@@ -843,7 +786,7 @@ export default function Home() {
 
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <a
-                  href="#pricing"
+                  href="https://chat.everestai.cloud"
                   className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-7 py-3.5 text-sm font-bold shadow-xl shadow-violet-600/20 transition hover:-translate-y-1"
                 >
                   Start free
@@ -851,10 +794,10 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="#schools"
+                  href="https://schools.everestai.cloud"
                   className="flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.025] px-7 py-3.5 text-sm font-semibold text-white/70 transition hover:-translate-y-1 hover:bg-white/[0.05] hover:text-white"
                 >
-                  Book a demo
+                  For Schools
                 </a>
               </div>
             </div>
@@ -867,7 +810,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
             <div>
-              <a href="#" className="flex items-center gap-2.5">
+              <a href="/" className="flex items-center gap-2.5">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05]">
                   <span>🏔️</span>
                 </div>
@@ -909,23 +852,44 @@ export default function Home() {
                 >
                   PPTgen
                 </a>
+                <a
+                  href="https://developers.everestai.cloud"
+                  className="block text-sm text-white/35 transition hover:text-white"
+                >
+                  Developers
+                </a>
               </div>
             </div>
 
-            <div id="about">
+            <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-white/60">
                 Company
               </h3>
               <div className="mt-5 space-y-3">
-                {["About", "Blog", "Careers", "Contact"].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="block text-sm text-white/35 transition hover:text-white"
-                  >
-                    {item}
-                  </a>
-                ))}
+                <a
+                  href="https://schools.everestai.cloud"
+                  className="block text-sm text-white/35 transition hover:text-white"
+                >
+                  For Schools
+                </a>
+                <a
+                  href="https://chat.everestai.cloud/pricing"
+                  className="block text-sm text-white/35 transition hover:text-white"
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#about"
+                  className="block text-sm text-white/35 transition hover:text-white"
+                >
+                  About
+                </a>
+                <a
+                  href="mailto:everest.ai.cloud@gmail.com"
+                  className="block text-sm text-white/35 transition hover:text-white"
+                >
+                  Contact
+                </a>
               </div>
             </div>
 
