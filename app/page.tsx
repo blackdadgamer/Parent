@@ -10,7 +10,6 @@ import {
   MessageSquare,
   Presentation,
   School,
-  ShieldCheck,
   Sparkles,
   Languages,
   Cpu,
@@ -308,24 +307,24 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative isolate overflow-hidden px-5 pb-24 pt-36 sm:px-8 sm:pt-44 lg:pb-32">
-        
-<div className="absolute inset-0 -z-10">
-  {/* Image at natural aspect ratio, centered */}
-  <div className="absolute inset-x-0 top-10 flex justify-center">
-    <img
-      src="/bg.png"
-      alt=""
-      aria-hidden="true"
-      className="w-full max-w-[1983px] opacity-40"
-      style={{ height: "auto" }}
-    />
-  </div>
-
-  {/* Fade to dark so content is readable */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/40 via-[#020617]/40 to-[#020617]" />
-</div>
-{/* Image at natural aspect ratio, centered */}
- 
+        {/* Hero background image */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-x-0 top-0 overflow-hidden" style={{ height: "500px" }}>
+            <img
+              src="/bg.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute left-1/2 top-0 -translate-x-1/2 opacity-40"
+              style={{
+                width: "1983px",
+                height: "793px",
+                objectFit: "cover",
+                objectPosition: "center top",
+              }}
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/50 via-[#020617]/95 to-[#020617]" />
+        </div>
 
         <div className="mx-auto max-w-6xl text-center">
           <FadeUp>
@@ -644,7 +643,7 @@ export default function Home() {
                 <div className="rounded-2xl border border-white/[0.08] bg-[#020617]/70 p-6 backdrop-blur-xl">
                   <p className="text-sm font-bold">Bring Everest AI to your school.</p>
                   <p className="mt-2 text-xs leading-5 text-white/35">
-                    Tell us a little about your school and we'll walk you
+                    Tell us a little about your school and we&apos;ll walk you
                     through the platform in a 15-minute demo.
                   </p>
 
@@ -707,7 +706,7 @@ export default function Home() {
                   </div>
 
                   <p className="mt-6 text-[15px] leading-7 text-white/65">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
 
                   <div className="mt-8 border-t border-white/[0.06] pt-5">
