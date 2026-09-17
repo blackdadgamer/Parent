@@ -1,16 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-function withSharedCookieOptions(options: Record<string, unknown> = {}) {
-  return {
-    ...options,
-    domain: '.everestai.cloud',
-    path: '/',
-    sameSite: 'lax' as const,
-    secure: true,
-  }
-}
-
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request })
 
@@ -24,12 +14,15 @@ export async function middleware(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
-            const sharedOptions = withSharedCookieOptions(options)
             request.cookies.set(name, value)
             response.cookies.set({
               name,
               value,
-              ...sharedOptions,
+              ...options,
+              domain: '.everestai.cloud',
+              path: '/',
+              sameSite: 'lax',
+              secure: true,
             })
           })
         },
