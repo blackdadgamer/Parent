@@ -1,0 +1,36 @@
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+
+export async function createClient() {
+  const cookieStore = await cookies()
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              cookieStore.set({
+                name,
+                value,
+                ...options,
+                domain: '.everestai.cloud',
+                path: '/',
+                sameSite: 'lax',
+                secure: true,
+              })
+            })
+          } catch {
+            // Cookie writes can fail when this client is created in a Server Component.
+            // Middleware owns session refreshes and response cookie writes.
+          }
+        },
+      },
+    }
+  )
+}
