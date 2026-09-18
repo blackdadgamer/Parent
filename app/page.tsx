@@ -233,13 +233,13 @@ export default function Home() {
 
           <div className="hidden items-center gap-5 sm:flex">
             <a
-              href="https://chat.everestai.cloud"
+              href="/login"
               className="text-sm font-medium text-white/65 transition hover:text-white"
             >
               Log in
             </a>
             <a
-              href="https://chat.everestai.cloud"
+              href="/signup"
               className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-violet-600/20 transition hover:-translate-y-0.5 hover:shadow-violet-500/30"
             >
               <span className="relative z-10">Get Started</span>
@@ -295,7 +295,7 @@ export default function Home() {
                 FAQ
               </a>
               <a
-                href="https://chat.everestai.cloud"
+                href="/signup"
                 className="mt-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-3 text-center text-sm font-semibold"
               >
                 Get Started
