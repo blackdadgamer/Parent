@@ -15,11 +15,9 @@ import {
   Cpu,
   Users,
   Zap,
-  Menu,
-  X,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Navbar } from "@/components/Navbar";
 
 const products = [
   {
@@ -175,8 +173,6 @@ function FadeUp({
 }
 
 export default function Home() {
-  const [mobileMenu, setMobileMenu] = useState(false);
-
   return (
     <main className="min-h-screen overflow-hidden bg-[#020617] text-white">
       {/* Ambient background */}
@@ -187,123 +183,7 @@ export default function Home() {
       </div>
 
       {/* Navbar */}
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/[0.06] bg-[#020617]/75 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="/" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] shadow-lg shadow-violet-500/10">
-              <span className="text-lg">🏔️</span>
-            </div>
-            <span className="text-[17px] font-bold tracking-tight">
-              Everest <span className="text-white/50">AI</span>
-            </span>
-          </a>
-
-          <nav className="hidden items-center gap-8 lg:flex">
-            <a
-              href="#products"
-              className="text-sm font-medium text-white/55 transition hover:text-white"
-            >
-              Products
-            </a>
-            <a
-              href="#why"
-              className="text-sm font-medium text-white/55 transition hover:text-white"
-            >
-              Why Everest
-            </a>
-            <a
-              href="https://schools.everestai.cloud"
-              className="text-sm font-medium text-white/55 transition hover:text-white"
-            >
-              For Schools
-            </a>
-            <a
-              href="https://chat.everestai.cloud/pricing"
-              className="text-sm font-medium text-white/55 transition hover:text-white"
-            >
-              Pricing
-            </a>
-            <a
-              href="#faq"
-              className="text-sm font-medium text-white/55 transition hover:text-white"
-            >
-              FAQ
-            </a>
-          </nav>
-
-          <div className="hidden items-center gap-5 sm:flex">
-            <a
-              href="/login"
-              className="text-sm font-medium text-white/65 transition hover:text-white"
-            >
-              Log in
-            </a>
-            <a
-              href="/signup"
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-violet-600/20 transition hover:-translate-y-0.5 hover:shadow-violet-500/30"
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/15 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
-            </a>
-          </div>
-
-          <button
-            onClick={() => setMobileMenu(!mobileMenu)}
-            className="rounded-lg border border-white/10 p-2 text-white/70 sm:hidden"
-            aria-label="Toggle navigation"
-          >
-            {mobileMenu ? <X size={21} /> : <Menu size={21} />}
-          </button>
-        </div>
-
-        {mobileMenu && (
-          <div className="border-t border-white/[0.06] bg-[#020617]/95 px-5 py-5 sm:hidden">
-            <nav className="flex flex-col gap-4">
-              <a
-                href="#products"
-                onClick={() => setMobileMenu(false)}
-                className="py-1 text-sm font-medium text-white/65"
-              >
-                Products
-              </a>
-              <a
-                href="#why"
-                onClick={() => setMobileMenu(false)}
-                className="py-1 text-sm font-medium text-white/65"
-              >
-                Why Everest
-              </a>
-              <a
-                href="https://schools.everestai.cloud"
-                onClick={() => setMobileMenu(false)}
-                className="py-1 text-sm font-medium text-white/65"
-              >
-                For Schools
-              </a>
-              <a
-                href="https://chat.everestai.cloud/pricing"
-                onClick={() => setMobileMenu(false)}
-                className="py-1 text-sm font-medium text-white/65"
-              >
-                Pricing
-              </a>
-              <a
-                href="#faq"
-                onClick={() => setMobileMenu(false)}
-                className="py-1 text-sm font-medium text-white/65"
-              >
-                FAQ
-              </a>
-              <a
-                href="/signup"
-                className="mt-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-5 py-3 text-center text-sm font-semibold"
-              >
-                Get Started
-              </a>
-            </nav>
-          </div>
-        )}
-      </header>
+      <Navbar />
 
       {/* Hero */}
       <section className="relative isolate overflow-hidden px-5 pb-24 pt-36 sm:px-8 sm:pt-44 lg:pb-32">
