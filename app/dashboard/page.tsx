@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BarChart3,
   BookOpen,
-  Check,
   ChevronDown,
   FileText,
   Flame,
@@ -16,7 +15,6 @@ import {
   Sparkles,
   TrendingUp,
   UserRound,
-  Users,
   Zap,
 } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
